@@ -1,48 +1,36 @@
-let userName = ""; 
+//função para exibir mensagens colocadas no chat
+function sucess (response){
+const message = response.data;
+const ulMessage = document.querySelector(".message");
 
+for (let i = 0; i < message.length; i++) {
+    const chat = message[i];
+    ulMessage.innerHTML += `<li>${chat.text}</li>`;
+    }
+}
+
+function error(erro){
+    console.log(erro.response);
+}
 //criar uma tela de login
 
-function login () {
-  
-  } 
-      
-login();
 
+function reloadPage () {
+    const promise = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
 
-// const userLogin = (('https://mock-api.driven.com.br/api/v4/uol/participants'), username);
+    promise.then(sucess); 
+    promise.catch(error);
+      } 
+reloadPage();
 
-/*
-
-
-//quando a resposta for sucesso, fazer: 
-function getSucess(response) {
-    const mensage = response.data;
+      /*
+//enter in the chat with enter
+function pressEnter(){
+    const keyEnter = event.keyCode;
+    const clickButton = document.querySelector(".button")
+    
+    if (keyEnter === 13) {
+        startChat();
+    }
 }
-
-const promise = axios.get("")
-
-
-function getError(error) {
-    console.log(error.response)
-}
-
-//quando a resposta der erro, ele executa a função de exibir erro
-promise.catch(getError);
-
-
-//enviar um objeto com os dados coletados para API, exemplo
-const album = document.querySelector(".musica").value 
-//ou 
-const musicas = {
-    album: inputAlbum.value,
-    genero: [inputGenero.value] //é um array
-}
-
-//  envia os dados coletados para o axios
-axios.post(("url"), musica)
-
-
-// para cada requisição, envia um catch / then
-
-// fazer função para atualziar a pagina (para mostrar os dados enviados)
 */

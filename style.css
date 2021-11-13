@@ -9,7 +9,7 @@ body {
     flex-direction: column;
   }
 header {
-    display: none;
+    display: flex;
     justify-content: space-between;
     z-index: 10;
     position: sticky;
@@ -33,6 +33,9 @@ header ion-icon{
     background-color: rgb(255, 176, 244);
     width: 375px;
     height: 670px;
+
+    overflow-x: scroll;
+    scrollbar-width: none;
 }
 .loginScreen{
     display: none;
@@ -85,7 +88,7 @@ header ion-icon{
     height: 100%;
     
     margin: auto;
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -108,7 +111,7 @@ span {
     line-height: 21px;
 }
 .chat{
-    display: none;
+    overflow: hidden;
     background-color: #96fcda;
 }
 header img {
@@ -122,11 +125,12 @@ header img {
 footer{
     width: 100%;
     height: 80px;
-    position: sticky;
+    position: fixed;
     bottom: 0px;
     left: 0px;
+    right: 0px;
 
-    display: none;
+    display: flex;
     justify-content: space-between;    
 
     font-family: Roboto;
