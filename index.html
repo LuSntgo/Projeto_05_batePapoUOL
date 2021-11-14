@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +17,8 @@
     <main class="container"> 
         <div class="loginScreen">
          <img src="/img/logo 1.png" alt="logo">
-         <input class="nickname" id="input"placeholder="Digite seu nome" onkeypress = "pressEnter()"> 
-         <button class="button" onclick="loginScreen()">Entrar</button>
+         <input class="nickname" data-identifier="enter-name" id="input"placeholder="Digite seu nome" onkeypress = "pressEnterLogin()"> 
+         <button class="button" data-identifier="start" onclick="loginScreen()">Entrar</button>
         </div>
         
         <div class="loading hide">
@@ -36,8 +36,8 @@
     </div>
 </main>
     <footer class="bottom">
-    <input id="input"placeholder="Escreva aqui..." > 
-    <ion-icon name="paper-plane-outline"></ion-icon>
+    <input class="send" id="input"placeholder="Escreva aqui..." onkeypress = "pressEnter()" > 
+    <ion-icon name="paper-plane-outline" data-identifier="send-message" onclick="sendMessage()"></ion-icon>
     </footer>
     
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
