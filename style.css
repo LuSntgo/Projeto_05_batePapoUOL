@@ -38,7 +38,7 @@ header ion-icon{
     scrollbar-width: none;
 }
 .loginScreen{
-    display: none;
+    display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -88,7 +88,7 @@ header ion-icon{
     height: 100%;
     
     margin: auto;
-    display: none;
+    display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -161,3 +161,15 @@ footer ion-icon{
     right: 27px;
    
 }
+
+.hide {
+    display: none;
+  }
+  
+  .status{
+      background-color: lightgray;
+  }
+  .private{
+    background-color: lightpink;
+  }
+  
