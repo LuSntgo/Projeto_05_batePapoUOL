@@ -8,6 +8,8 @@ let userName = { name: ""}
 
 const login = document.querySelector(".loginScreen");
 const loading = document.querySelector(".loading");
+const footer = document.querySelector(".bottom");
+const header = document.querySelector(".top");
 
 function loginScreen() {
     const nameInput = document.querySelector(".nickname").value;
@@ -25,6 +27,8 @@ function loginScreen() {
 function startChat(){
     const chatList = document.querySelector(".chat");
     loading.classList.add("hide");
+    footer.classList.remove("hide");
+    header.classList.remove("hide");
     chatList.classList.remove("hide");
     setInterval(conected,5000); 
     setInterval(reloadPage,3000);
@@ -41,7 +45,7 @@ function sendMessage(){
     messageInput.value = "";
     
 if(message.to === ""){
-    message.to = "Todos";
+    message.to = "Todos: ";
 } if (message.type === ""){
  message.type = "message";
 }
@@ -69,13 +73,13 @@ for (let i = 0; i < message.length; i++) {
         const to = message[i].to;
         const text = message[i].text;
         const time = message[i].time;
-        ulMessage.innerHTML += `<li class="message" data-identifier="message"> <p><span class="time"> ${time} </span> <span class= "from"> ${from} </span> para <span class= "to"> ${to} </span> <span class="text"> ${text} </span></p> </li>`;
+        ulMessage.innerHTML += `<li class="messages" data-identifier="message"> <p><span class="time"> (${time}) </span> <span class= "from"> <strong>${from}</strong></span> <span class="texts"> para </span> <span class= "to"> <strong>${to}</strong> </span> <span class="text"> ${text} </span></p> </li>`;
     }
     if (message[i].type === "status"){
         const from = message[i].from;
         const text = message[i].text;
         const time = message[i].time;
-        ulMessage.innerHTML += `<li class="status" data-identifier="message"> <p><span class="time"> ${time} </span> <span class= "from"> ${from} </span> <span class="text"> ${text} </span></p> </li>`;
+        ulMessage.innerHTML += `<li class="status" data-identifier="message"> <p><span class="time"> (${time}) </span> <span class= "from"> <strong>${from}</strong> </span> <span class="text"> ${text} </span></p> </li>`;
 }
 if (message[i].type === "private_message"){
     const from = message[i].from;
@@ -84,7 +88,7 @@ if (message[i].type === "private_message"){
     const time = message[i].time;
     if (userName.name === from || userName.name === to){
 
-        ulMessage.innerHTML += `<li class="private_message" data-identifier="message"> <p><span class="time"> ${time} </span> <span class= "from"> ${from} </span> reservadamente para <span class= "to"> ${to} </span> <span class="text"> ${text} </span></p> </li>`;
+        ulMessage.innerHTML += `<li class="private_message" data-identifier="message"> <p><span class="time">(${time}) </span> <span class= "from"> <strong>${from}</strong> </span> <span class="texts"> reservadamente para </span> <span class= "to"> <strong>${to}</strong> </span> <span class="text"> ${text} </span></p> </li>`;
    }
 }}
         lastMessages = document.querySelector("ul").lastChild;
